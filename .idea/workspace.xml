@@ -2,7 +2,243 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="875574f0-89b9-4be8-9b23-9f8aa367df9b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/voc/train_fcn32s.py" afterPath="$PROJECT_DIR$/examples/voc/train_fcn32s.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/vgg16.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trainer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/util.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MANIFEST.in" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/README.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/dataset.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/download_dataset.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/infer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/2016-06-11-23-47-29_log.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-06_18-13-09-840861_bin_J.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-06_18-56-33-740473_bin_J.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-06_19-55-35-066363_bin_C.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-06_20-53-44-700187_bin_L.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-07_09-05-07-601997_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-07_10-14-20-358381_bin_D.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-07_11-50-43-423212_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-07_20-26-01-779896_bin_F.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-07_22-12-10-091023_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-07_22-12-10-091023_bin_F.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-08_12-49-57-516858_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-09_12-24-42-683421_bin_B.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-09_18-30-11-165417_bin_B.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-09_18-48-18-096166_bin_H.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-10_15-03-32-112882_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-10_15-03-32-112882_bin_D.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-11_11-23-41-216983_bin_H.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-18_11-35-42-994464_bin_B.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-20_10-49-20-003500_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-20_10-49-20-003500_bin_F.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-20_10-49-20-003500_bin_K.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-20_11-58-11-023395_bin_I.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-20_11-58-11-023395_bin_J.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-20_11-58-11-023395_bin_K.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000/2015-05-20_19-11-34-760860_bin_C.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-06_18-13-09-840861_bin_J.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-06_18-56-33-740473_bin_J.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-06_19-55-35-066363_bin_C.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-06_20-53-44-700187_bin_L.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-07_09-05-07-601997_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-07_10-14-20-358381_bin_D.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-07_11-50-43-423212_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-07_20-26-01-779896_bin_F.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-07_22-12-10-091023_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-07_22-12-10-091023_bin_F.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-08_12-49-57-516858_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-09_12-24-42-683421_bin_B.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-09_18-30-11-165417_bin_B.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-09_18-48-18-096166_bin_H.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-10_15-03-32-112882_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-10_15-03-32-112882_bin_D.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-11_11-23-41-216983_bin_H.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-18_11-35-42-994464_bin_B.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-20_10-49-20-003500_bin_A.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-20_10-49-20-003500_bin_F.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-20_10-49-20-003500_bin_K.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-20_11-58-11-023395_bin_I.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-20_11-58-11-023395_bin_J.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-20_11-58-11-023395_bin_K.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/static/rbo_val_8000_with_context/2015-05-20_19-11-34-760860_bin_C.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2015/train_fcn32s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/README.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/datasets/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/datasets/base.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/datasets/jsk.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/datasets/mit_benchmark.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/datasets/rbo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/datasets/v1.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/datasets/v2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/download_dataset.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/generate_label_colortable.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/infer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/infer_val.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/train_fcn16s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/train_fcn32s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/apc2016/train_fcn8s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/caffe_to_chainermodel.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/download_datasets.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/download_models.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/evaluate.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/infer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/learning_curve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/static/fcn16s_iter00100000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/static/fcn16s_iters.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/static/fcn32s_iter00092000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/static/fcn32s_iters.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/static/fcn8s_iter00072000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/summarize_logs.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/train_fcn16s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/train_fcn32s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/train_fcn8s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/voc/train_fcn8s_atonce.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/data.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/datasets/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/datasets/transforms.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/datasets/voc.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/nyud/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/nyud/classes.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/nyud/test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/nyud/train.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/nyud/val.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/pascal-context/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/pascal-context/classes-400.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/pascal-context/classes-59.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/pascal/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/pascal/classes.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/pascal/seg11valid.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/sift-flow/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/sift-flow/classes.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/sift-flow/test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/data/sift-flow/trainval.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/ilsvrc-nets/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/infer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-d/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-d/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-d/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-d/test.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-d/trainval.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-hha/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-hha/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-hha/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-hha/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-hha/test.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color-hha/trainval.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color/test.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-color/trainval.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-hha/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-hha/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-hha/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-hha/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-hha/test.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud-fcn32s-hha/trainval.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/nyud_layers.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn16s/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn16s/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn16s/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn16s/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn16s/train.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn16s/val.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn32s/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn32s/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn32s/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn32s/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn32s/train.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn32s/val.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn8s/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn8s/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn8s/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn8s/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn8s/train.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext-fcn8s/val.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/pascalcontext_layers.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/score.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn16s/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn16s/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn16s/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn16s/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn16s/test.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn16s/trainval.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn32s/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn32s/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn32s/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn32s/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn32s/solver.prototxt.orig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn32s/test.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn32s/trainval.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn8s/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn8s/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn8s/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn8s/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn8s/test.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow-fcn8s/trainval.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/siftflow_layers.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/surgery.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn-alexnet/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn-alexnet/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn-alexnet/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn-alexnet/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn-alexnet/train.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn-alexnet/val.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn16s/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn16s/deploy.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn16s/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn16s/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn16s/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn16s/train.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn16s/val.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn32s/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn32s/deploy.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn32s/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn32s/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn32s/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn32s/train.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn32s/val.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s-atonce/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s-atonce/deploy.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s-atonce/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s-atonce/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s-atonce/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s-atonce/train.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s-atonce/val.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s/caffemodel-url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s/deploy.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s/net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s/solve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s/solver.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s/train.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc-fcn8s/val.prototxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc_helper.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/external/fcn.berkeleyvision.org/voc_layers.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/initializers/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/initializers/weight.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/models/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/models/fcn16s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/models/fcn32s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/models/fcn8s.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/models/vgg16.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/trainer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fcn/utils.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/fcn_infer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/setup.cfg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/setup.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/data/2007_000063.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/data/2007_000063.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/initializers_tests/test_weight.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/utils_tests/test_label_accuracy_score.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/utils_tests/test_visualize_segmentation.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,55 +249,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="setup.cfg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setup.cfg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="download_datasets.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/voc/download_datasets.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train_fcn8s.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/voc/train_fcn8s.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#23#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train_fcn32s.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/voc/train_fcn32s.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-              <folding>
-                <element signature="e#23#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="vgg16.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fcn/models/vgg16.py">
+        <entry file="file://$PROJECT_DIR$/models/vgg16.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -69,33 +261,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="download_models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/voc/download_models.py">
+      <file leaf-file-name="trainer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="432">
+              <caret line="57" column="12" lean-forward="false" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="train_fcn16s.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/voc/train_fcn16s.py">
+      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="60" column="29" lean-forward="false" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="180">
+              <caret line="10" column="50" lean-forward="true" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/preprocess.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>vgg</find>
       <find>32</find>
       <find>d</find>
+      <find>load_data</find>
+      <find>serializers</find>
+      <find>data</find>
+      <find>serializer</find>
+      <find>gpu_flag</find>
+      <find>pretrained_model</find>
+      <find>xp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,6 +327,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/examples/voc/train_fcn32s.py" />
+        <option value="$PROJECT_DIR$/util.py" />
+        <option value="$PROJECT_DIR$/preprocess.py" />
+        <option value="$PROJECT_DIR$/trainer.py" />
+        <option value="$PROJECT_DIR$/models/vgg16.py" />
       </list>
     </option>
   </component>
@@ -147,12 +373,7 @@
             <path>
               <item name="fcn" type="b2602c69:ProjectViewProjectNode" />
               <item name="fcn" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fcn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fcn" type="462c0819:PsiDirectoryNode" />
-              <item name="fcn" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -191,16 +412,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2498621" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2498621" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -268,16 +490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/voc/train_fcn8s.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#23#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/voc/train_fcn16s.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -290,9 +502,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <element signature="e#23#38#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -306,8 +516,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fcn/models/vgg16.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/voc/train_fcn8s.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="50" lean-forward="true" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="57" column="12" lean-forward="false" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/vgg16.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
