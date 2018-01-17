@@ -1,0 +1,1 @@
+../examples/voc/infer.py

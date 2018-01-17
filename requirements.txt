@@ -1,0 +1,9 @@
+gdown
+tqdm
+numpy
+scipy
+matplotlib
+pandas
+scikit-learn
+scikit-image
+chainer>=2.0.0
