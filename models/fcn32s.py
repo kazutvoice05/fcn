@@ -16,7 +16,7 @@ class FCN32s(chainer.Chain):
         }
         super(FCN32s, self).__init__()
         with self.init_scope():
-            self.conv1_1 = L.Convolution2D(3, 64, 3, 1, 100, **kwargs)
+            self.conv1_1 = L.Convolution2D(3, 64, 3, 1, 1, **kwargs)
             self.conv1_2 = L.Convolution2D(64, 64, 3, 1, 1, **kwargs)
 
             self.conv2_1 = L.Convolution2D(64, 128, 3, 1, 1, **kwargs)
@@ -34,12 +34,12 @@ class FCN32s(chainer.Chain):
             self.conv5_2 = L.Convolution2D(512, 512, 3, 1, 1, **kwargs)
             self.conv5_3 = L.Convolution2D(512, 512, 3, 1, 1, **kwargs)
 
-            self.fc6 = L.Linear(512, 4096, **kwargs)
+            self.fc6 = L.Linear(512, 4096,7, 1, 0 **kwargs)
             self.fc7 = L.Convolution2D(4096, 4096, 1, 1, 0, **kwargs)
 
             self.score_fr= L.Convolution2D(4096, n_class, 1, 1, 0, **kwargs)
 
-            self.upscore = L.Deconvolution2D(n_class, n_class, 64, 32, 0, nobias=True, initialW=initializers.UpsamplingDeconvWeight())
+            self.upscore = L.Deconvolution2D(n_class, n_class, 64, 32, 0, nobias=True, initialW=UpsamplingDeconvWeight())
 
     def __call__(self, x, t=None, train=False, test=False):
         h = x

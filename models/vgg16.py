@@ -12,7 +12,7 @@ class VGG16(chainer.Chain):
     def __init__(self, n_class=38):
         super(VGG16, self).__init__()
         with self.init_scope():
-            self.conv1_1 = L.Convolution2D(3, 64, 3, 1, 1)
+            self.conv1_1 = L.Convolution2D(3, 64, 3, 1, 100)
             self.conv1_2 = L.Convolution2D(64, 64, 3, 1, 1)
 
             self.conv2_1 = L.Convolution2D(64, 128, 3, 1, 1)
@@ -37,35 +37,34 @@ class VGG16(chainer.Chain):
 
     def __call__(self, x, t=None, train=False, test=False):
         h = x
-        h = F.relu(self.conv1_1(h))
-        h = F.relu(self.conv1_2(h))
-        h = F.max_pooling_2d(h, 2, stride=2)
+        c11= F.relu(self.conv1_1(h))
+        c12 = F.relu(self.conv1_2(c11))
+        p1 = F.max_pooling_2d(c12, 2, stride=2)
 
-        h = F.relu(self.conv2_1(h))
-        h = F.relu(self.conv2_2(h))
-        h = F.max_pooling_2d(h, 2, stride=2)
+        c21 = F.relu(self.conv2_1(p1))
+        c22 = F.relu(self.conv2_2(c21))
+        p2 = F.max_pooling_2d(c22, 2, stride=2)
 
-        h = F.relu(self.conv3_1(h))
-        h = F.relu(self.conv3_2(h))
-        h = F.relu(self.conv3_3(h))
-        h = F.max_pooling_2d(h, 2, stride=2)
+        c31 = F.relu(self.conv3_1(p2))
+        c32 = F.relu(self.conv3_2(c31))
+        c33 = F.relu(self.conv3_3(c32))
+        p3 = F.max_pooling_2d(c33, 2, stride=2)
 
-        h = F.relu(self.conv4_1(h))
-        h = F.relu(self.conv4_2(h))
-        h = F.relu(self.conv4_3(h))
-        h = F.max_pooling_2d(h, 2, stride=2)
+        c41 = F.relu(self.conv4_1(p3))
+        c42 = F.relu(self.conv4_2(c41))
+        c43 = F.relu(self.conv4_3(c42))
+        p4 = F.max_pooling_2d(c43, 2, stride=2)
 
-        h = F.relu(self.conv5_1(h))
-        h = F.relu(self.conv5_2(h))
-        h = F.relu(self.conv5_3(h))
-        h = F.max_pooling_2d(h, 2, stride=2)
+        c51 = F.relu(self.conv5_1(p4))
+        c52 = F.relu(self.conv5_2(c51))
+        c53 = F.relu(self.conv5_3(c52))
+        p5 = F.max_pooling_2d(c53, 2, stride=2)
 
-        h = F.dropout(F.relu(self.fc6(h)), ratio=.5)
-        h = F.dropout(F.relu(self.fc7(h)), ratio=.5)
-        h = self.fc8(h)
-        fc8 = h
+        f6 = F.dropout(F.relu(self.fc6(p5)), ratio=.5)
+        f7 = F.dropout(F.relu(self.fc7(f6)), ratio=.5)
+        f8 = self.fc8(f7)
 
-        self.score = fc8
+        self.score = f8
 
         if t is None:
             assert not chainer.config.train

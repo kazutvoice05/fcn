@@ -52,11 +52,11 @@ n_data = len(names)
 n_iter = n_data // batchsize
 gpu_flag = True if args.gpu > 0 else False
 
-vgg = VGG16()
-chainer.serializers.load_npz(vgg.pretrained_model, vgg)
+#vgg = VGG16()
+#chainer.serializers.load_npz(vgg.pretrained_model, vgg)
 
 model = FCN32s(n_class=n_class)
-model.init_from_vgg16(vgg)
+#model.init_from_vgg16(vgg)
 
 
 
