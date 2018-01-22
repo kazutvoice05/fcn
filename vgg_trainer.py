@@ -57,7 +57,8 @@ if args.gpu >= 0:
     chainer.cuda._get_device(args.gpu).use()
     model.to_gpu()
 
-xp = np if args.gpu < 0 else cuda.cupy
+xp = np if args.gpu < 0 else cupy
+xp = cupy
 
 optimizer = optimizers.Adam(alpha=args.lr)
 optimizer.setup(model)
@@ -75,8 +76,8 @@ for epoch in range(1, n_epoch+1):
         model.cleargrads()
         indices = range(i * batchsize, (i+1)*batchsize)
 
-        x = xp.zeros((batchsize, 3, 480, 640), dtype=xp.float32)
-        y = xp.zeros((batchsize, 480, 640), dtype=xp.int32)
+        x = xp.zeros((batchsize, 3, 240, 320), dtype=xp.float32)
+        y = xp.zeros((batchsize, 240, 320), dtype=xp.int32)
 
         for j in range(batchsize):
             name = names[i*batchsize + j]
