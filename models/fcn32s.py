@@ -34,12 +34,15 @@ class FCN32s(chainer.Chain):
             self.conv5_2 = L.Convolution2D(512, 512, 3, 1, 1, **kwargs)
             self.conv5_3 = L.Convolution2D(512, 512, 3, 1, 1, **kwargs)
 
-            self.fc6 = L.Linear(512, 4096,7, 1, 0 **kwargs)
+            self.fc6 = L.Convolution2D(512, 4096, 7, 1, 0, **kwargs)
             self.fc7 = L.Convolution2D(4096, 4096, 1, 1, 0, **kwargs)
 
             self.score_fr= L.Convolution2D(4096, n_class, 1, 1, 0, **kwargs)
 
             self.upscore = L.Deconvolution2D(n_class, n_class, 64, 32, 0, nobias=True, initialW=UpsamplingDeconvWeight())
+
+            self.upscore2 = L.Deconvolution2D(n_class, n_class, 4, 2, 0, nobias=True, initialW=UpsamplingDeconvWeight())
+
 
     def __call__(self, x, t=None, train=False, test=False):
         h = x
@@ -65,14 +68,29 @@ class FCN32s(chainer.Chain):
         h = F.relu(self.conv5_2(h))
         h = F.relu(self.conv5_3(h))
         h = F.max_pooling_2d(h, 2, stride=2)
+        print("pooled_conv5_3: ")
+        print(h.shape)
 
         h = F.dropout(F.relu(self.fc6(h)), ratio=.5)
+        print("fc6: ")
+        print(h.shape)
         h = F.dropout(F.relu(self.fc7(h)), ratio=.5)
+        print("fc7: ")
+        print(h.shape)
 
         h = self.score_fr(h)
+        print("score_fr: ")
+        print(h.shape)
 
         h = self.upscore(h)
-        h = h[:,:, 19:19 + x.data.shape[2], 19:19 + x.data.shape[3]]
+        print("upscore")
+        print(h.shape)
+        h = self.upscore2(h)
+        print("upscore2")
+        print(h.shape)
+        h = h[:,:, 32:32 + x.data.shape[2], 32:32 + x.data.shape[3]]
+        print("??? operate")
+        print(h.shape)
 
         score = h
         self.score = h
@@ -98,10 +116,5 @@ class FCN32s(chainer.Chain):
                 assert l1.b.shape == l2.b.shape
                 l2.W.data[...] = l1.W.data[...]
                 l2.b.data[...] = l1.b.data[...]
-            elif l.name in ['fc6', 'fc7']:
-                l1 = getattr(vgg16, l.name)
-                l2 = getattr(self, l.name)
-                assert l1.W.size == l2.W.size
-                assert l1.b.size == l2.b.size
-                l2.W.data[...] = l1.W.data.reshape(l2.W.shape)[...]
-                l2.b.data[...] = l1.b.data.reshape(l2.b.shape)[...]
+
+                print(l.name + "was copied to new model from vgg16")

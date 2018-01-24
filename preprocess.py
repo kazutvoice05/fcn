@@ -1,11 +1,11 @@
 import numpy as np
 from PIL import Image
-from chainer import  cuda
-import cupy
+from chainer import cuda
 
-def load_data(path, mode="label", xp=cupy):
+
+def load_data(path, mode="label", xp=cuda.cupy):
     img = Image.open(path)
-    simg = img.resize((240, 320))
+    simg = img.resize((224, 224))
 
     if mode == "label":
         y = xp.asarray(simg, dtype=xp.int32)

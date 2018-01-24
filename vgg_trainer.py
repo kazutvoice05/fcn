@@ -23,7 +23,7 @@ train_txt_path = dataset_path + "train.txt"
 save_path = "/home/takagi/projects/dl_training/fcn/weights/first_vgg"
 
 parser = argparse.ArgumentParser(description='Chainer VGG16 trainer')
-parser.add_argument('--gpu', '-g', default=0, type=int,
+parser.add_argument('--gpu', '-g', default=-1, type=int,
                     help='GPU ID (negative value indicates CPU)')
 parser.add_argument('--train_dataset', '-tr', default= rgb_path, type=str)
 parser.add_argument('--target_dataset', '-ta', default= label_path, type=str)
@@ -58,7 +58,6 @@ if args.gpu >= 0:
     model.to_gpu()
 
 xp = np if args.gpu < 0 else cupy
-xp = cupy
 
 optimizer = optimizers.Adam(alpha=args.lr)
 optimizer.setup(model)
@@ -76,8 +75,8 @@ for epoch in range(1, n_epoch+1):
         model.cleargrads()
         indices = range(i * batchsize, (i+1)*batchsize)
 
-        x = xp.zeros((batchsize, 3, 240, 320), dtype=xp.float32)
-        y = xp.zeros((batchsize, 240, 320), dtype=xp.int32)
+        x = xp.zeros((batchsize, 3, 224, 224), dtype=xp.float32)
+        y = xp.zeros((batchsize, 224, 224), dtype=xp.int32)
 
         for j in range(batchsize):
             name = names[i*batchsize + j]

@@ -9,7 +9,7 @@ class VGG16(chainer.Chain):
 
     pretrained_model = osp.expanduser('/home/takagi/projects/dl_training/vgg16_from_caffe.npz')
 
-    def __init__(self, n_class=38):
+    def __init__(self, n_class=1000):
         super(VGG16, self).__init__()
         with self.init_scope():
             self.conv1_1 = L.Convolution2D(3, 64, 3, 1, 1)

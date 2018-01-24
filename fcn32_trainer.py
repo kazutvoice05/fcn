@@ -5,7 +5,6 @@ import chainer.links as L
 from chainer import cuda, optimizers, Variable
 from chainer import training
 from chainer.training import extensions
-import cupy
 
 import sys
 import os
@@ -52,13 +51,11 @@ n_data = len(names)
 n_iter = n_data // batchsize
 gpu_flag = True if args.gpu > 0 else False
 
-#vgg = VGG16()
-#chainer.serializers.load_npz(vgg.pretrained_model, vgg)
+vgg = VGG16()
+chainer.serializers.load_npz(vgg.pretrained_model, vgg)
 
 model = FCN32s(n_class=n_class)
-#model.init_from_vgg16(vgg)
-
-
+model.init_from_vgg16(vgg)
 
 
 if args.gpu >= 0:
@@ -70,6 +67,46 @@ xp = np if args.gpu < 0 else cuda.cupy
 optimizer = chainer.optimizers.MomentumSGD(lr=1.0e-10, momentum=0.99)
 optimizer.setup(model)
 optimizer.add_hook(chainer.optimizer.WeightDecay(rate=0.0005))
+
+model.conv1_1.W.update_rule.enabled = False
+model.conv1_1.b.update_rule.enabled = False
+
+model.conv1_2.W.update_rule.enabled = False
+model.conv1_2.b.update_rule.enabled = False
+
+model.conv2_1.W.update_rule.enabled = False
+model.conv2_1.b.update_rule.enabled = False
+
+model.conv2_2.W.update_rule.enabled = False
+model.conv2_2.b.update_rule.enabled = False
+
+model.conv3_1.W.update_rule.enabled = False
+model.conv3_1.b.update_rule.enabled = False
+
+model.conv3_2.W.update_rule.enabled = False
+model.conv3_2.b.update_rule.enabled = False
+
+model.conv3_3.W.update_rule.enabled = False
+model.conv3_3.b.update_rule.enabled = False
+
+model.conv4_1.W.update_rule.enabled = False
+model.conv4_1.b.update_rule.enabled = False
+
+model.conv4_2.W.update_rule.enabled = False
+model.conv4_2.b.update_rule.enabled = False
+
+model.conv4_3.W.update_rule.enabled = False
+model.conv4_3.b.update_rule.enabled = False
+
+model.conv5_1.W.update_rule.enabled = False
+model.conv5_1.b.update_rule.enabled = False
+
+model.conv5_2.W.update_rule.enabled = False
+model.conv5_2.b.update_rule.enabled = False
+
+model.conv5_3.W.update_rule.enabled = False
+model.conv5_3.b.update_rule.enabled = False
+
 
 for p in model.params():
     if p.name == 'b':
@@ -90,8 +127,8 @@ for epoch in range(1, n_epoch+1):
         model.cleargrads()
         indices = range(i * batchsize, (i+1)*batchsize)
 
-        x = xp.zeros((batchsize, 3, 480, 640), dtype=xp.float32)
-        y = xp.zeros((batchsize, 480, 640), dtype=xp.int32)
+        x = xp.zeros((batchsize, 3, 224, 224), dtype=xp.float32)
+        y = xp.zeros((batchsize, 224, 224), dtype=xp.int32)
 
         for j in range(batchsize):
             name = names[i*batchsize + j]
