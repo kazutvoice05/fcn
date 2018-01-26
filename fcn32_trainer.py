@@ -1,4 +1,7 @@
 import numpy as np
+
+np.set_printoptions(threshold=np.inf)
+
 import chainer
 import chainer.function as F
 import chainer.links as L
@@ -13,14 +16,14 @@ import argparse
 from models.vgg16 import VGG16
 from models.fcn32s import FCN32s
 from preprocess import load_data
-from util import save_models
+from util import save_models, update_datas
 
 dataset_path = "/home/takagi/projects/dl_training/nyud_dataset/"
 rgb_path = dataset_path + "rgb_images/"
 label_path = dataset_path + "label_images/"
 train_txt_path = dataset_path + "train.txt"
 
-save_path = "/home/takagi/projects/dl_training/fcn/weights/first_vgg"
+save_path = "/home/takagi/projects/dl_training/fcn/weights/32s/20180126/"
 
 parser = argparse.ArgumentParser(description='Chainer VGG16 trainer')
 parser.add_argument('--gpu', '-g', default=0, type=int,
@@ -32,7 +35,7 @@ parser.add_argument('--batchsize', '-bm', type=int, default=1,
                     help='batch size (default value is 1)')
 parser.add_argument('--initmodel', '-i', default=None, type=str,
                     help='initialize the model from given file')
-parser.add_argument('--epoch', '-e', default=300, type=int)
+parser.add_argument('--epoch', '-e', default=100000, type=int)
 parser.add_argument('--lr', '-l', default=1e-3, type=float)
 parser.add_argument('--classes', default=38, type=int) #37 + 1(background)
 args = parser.parse_args()
@@ -68,45 +71,6 @@ optimizer = chainer.optimizers.MomentumSGD(lr=1.0e-10, momentum=0.99)
 optimizer.setup(model)
 optimizer.add_hook(chainer.optimizer.WeightDecay(rate=0.0005))
 
-model.conv1_1.W.update_rule.enabled = False
-model.conv1_1.b.update_rule.enabled = False
-
-model.conv1_2.W.update_rule.enabled = False
-model.conv1_2.b.update_rule.enabled = False
-
-model.conv2_1.W.update_rule.enabled = False
-model.conv2_1.b.update_rule.enabled = False
-
-model.conv2_2.W.update_rule.enabled = False
-model.conv2_2.b.update_rule.enabled = False
-
-model.conv3_1.W.update_rule.enabled = False
-model.conv3_1.b.update_rule.enabled = False
-
-model.conv3_2.W.update_rule.enabled = False
-model.conv3_2.b.update_rule.enabled = False
-
-model.conv3_3.W.update_rule.enabled = False
-model.conv3_3.b.update_rule.enabled = False
-
-model.conv4_1.W.update_rule.enabled = False
-model.conv4_1.b.update_rule.enabled = False
-
-model.conv4_2.W.update_rule.enabled = False
-model.conv4_2.b.update_rule.enabled = False
-
-model.conv4_3.W.update_rule.enabled = False
-model.conv4_3.b.update_rule.enabled = False
-
-model.conv5_1.W.update_rule.enabled = False
-model.conv5_1.b.update_rule.enabled = False
-
-model.conv5_2.W.update_rule.enabled = False
-model.conv5_2.b.update_rule.enabled = False
-
-model.conv5_3.W.update_rule.enabled = False
-model.conv5_3.b.update_rule.enabled = False
-
 
 for p in model.params():
     if p.name == 'b':
@@ -122,13 +86,15 @@ print("-"*40)
 
 for epoch in range(1, n_epoch+1):
     print("epoch", epoch)
+    ave_ac = 0;
+    ave_loss = 0;
     for i in range(n_iter):
 
         model.cleargrads()
         indices = range(i * batchsize, (i+1)*batchsize)
 
-        x = xp.zeros((batchsize, 3, 224, 224), dtype=xp.float32)
-        y = xp.zeros((batchsize, 224, 224), dtype=xp.int32)
+        x = xp.zeros((batchsize, 3, 240, 320), dtype=xp.float32)
+        y = xp.zeros((batchsize, 240, 320), dtype=xp.int32)
 
         for j in range(batchsize):
             name = names[i*batchsize + j]
@@ -140,16 +106,23 @@ for epoch in range(1, n_epoch+1):
 
         x = Variable(x)
         y = Variable(y)
-        loss = model(x, y, train = True)
-
-        sys.stdout.write("\r%s" % "batch: {}/{}, loss: {}".format(i+1, n_iter, loss.data))
+        loss, accuracy = model(x, y, train = True)
+        ave_loss += float(loss.data)
+        ave_ac += float(accuracy.data)
+        sys.stdout.write("\r%s" % "batch: {}/{}, accuracy: {:3.4}, loss: {}".format(i+1, n_iter, float(accuracy.data), float(loss.data)))
         sys.stdout.flush()
 
         loss.backward()
         optimizer.update()
 
+    ave_loss /= 1200
+    ave_ac /= 1200
+    sys.stdout.write("\naverage_accuracy: {:3.4}, average_loss: {}".format(ave_ac, ave_loss))
+    update_datas(str(ave_ac), str(ave_loss), save_path)
+
     if epoch % 50 == 0:
         save_models(model, optimizer, save_path, epoch)
+        sys.stdout.write("saved model of {} epoch".format(epoch))
     print("\n" + "-"*40)
 
 save_models(model, optimizer, save_path, epoch)
