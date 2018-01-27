@@ -13,6 +13,7 @@ from PIL import Image
 import os
 import argparse
 import cv2
+import cupy
 
 from models.fcn32s import FCN32s
 from preprocess import load_data
@@ -28,24 +29,26 @@ parser.add_argument('--classes', default=38, type=int)
 #parser.add_argument('--classes', default=21, type=int)
 args = parser.parse_args()
 
+xp = cupy if args.gpu >= 0 else np
+
 img_name = args.image_path.split("/")[-1].split(".")[0]
 
 color_map = make_color_map(args.classes) #要仕様変更
 model = FCN32s(n_class= args.classes)
 #serializers.load_npz('weight/chainer_fcn.weight', model)
-serializers.load_npz('/home/takagi/projects/dl_training/fcn/weights/first_vgg/epoch_250/chainer_vgg.weight', model)
+serializers.load_npz(args.weight, model)
 
-o = load_data(args.image_path, mode="predict")
-x = load_data(args.image_path, mode="data")
-x = np.expand_dims(x, axis=0)
+o = load_data(args.image_path, args.gpu, mode="predict")
+x = load_data(args.image_path, args.gpu, mode="data")
+x = xp.expand_dims(x, axis=0)
 pred = model.predict(x)
 pred = pred[0]
 
 row, col = pred.shape
-dst = np.ones((row, col, 3))
+dst = xp.ones((row, col, 3))
 for i in range(args.classes):
   dst[pred == i] = color_map[i]
-img = Image.fromarray(np.uint8(dst))
+img = Image.fromarray(xp.uint8(dst))
 
 b,g,r = img.split()
 img = Image.merge("RGB",(r,g,b))

@@ -4,7 +4,9 @@ from chainer import cuda
 import cupy
 
 
-def load_data(path, mode="label", xp=cupy):
+def load_data(path, gpu, mode="label", xp=cupy):
+    xp = cupy if gpu >= 0 else np
+
     img = Image.open(path)
     img = img.resize((320, 240))
 

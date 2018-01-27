@@ -8,6 +8,7 @@ import chainer.links as L
 from chainer import cuda, optimizers, Variable
 from chainer import training
 from chainer.training import extensions
+#from chainer.links import VGG16Layers
 
 import sys
 import os
@@ -101,8 +102,8 @@ for epoch in range(1, n_epoch+1):
             name = names[i * batchsize + j]
             xpath = train_dataset + name + ".png"
             ypath = target_dataset + name + ".png"
-            x[j] = load_data(xpath, mode='data')
-            y[j] = load_data(ypath, mode='label')
+            x[j] = load_data(xpath, args.gpu, mode='data')
+            y[j] = load_data(ypath, args.gpu, mode='label')
 
         x = Variable(x)
         y = Variable(y)
